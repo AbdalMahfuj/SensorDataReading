@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Accelerometer Sensor Data"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center"/>
         <LinearLayout
@@ -32,12 +33,14 @@
             <TextView
                 android:id="@+id/acc_xVal"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 />
             <TextView
                 android:id="@+id/acc_yVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,6 +48,7 @@
                 />
             <TextView
                 android:id="@+id/acc_zVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,12 +63,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         android:background="@drawable/rounded"
         android:layout_marginTop="30dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Gravity Sensor data"
             android:textStyle="bold"
             android:gravity="center" />
@@ -78,18 +82,21 @@
             android:weightSum="3">
             <TextView
                 android:id="@+id/grav_xVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
             <TextView
                 android:id="@+id/grav_yVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
             <TextView
                 android:id="@+id/grav_zVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -108,6 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Magnetic Sensor data"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center" />
         <LinearLayout
@@ -120,18 +128,21 @@
             android:weightSum="3">
             <TextView
                 android:id="@+id/magno_xVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
             <TextView
                 android:id="@+id/magno_yVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
             <TextView
                 android:id="@+id/magno_zVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,6 +161,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Gyroscope Sensor data"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center" />
         <LinearLayout
@@ -162,18 +174,21 @@
             android:weightSum="3">
             <TextView
                 android:id="@+id/gyro_xVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
             <TextView
                 android:id="@+id/gyro_yVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
             <TextView
                 android:id="@+id/gyro_zVal"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -195,11 +210,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pressure Sensor Data: "
+        android:textColor="@color/white"
         android:layout_marginLeft="10dp"
         android:textStyle="bold"/>
     <TextView
         android:layout_weight="1"
         android:id="@+id/pressID"
+        android:textColor="@color/white"
         android:layout_marginRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -221,6 +238,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="Light Sensor Data: "
+        android:textColor="@color/white"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/lightID"
@@ -228,13 +246,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
+        android:textColor="@color/white"
         android:layout_gravity="center"/>
 </LinearLayout>
 
     <!-- Pressure Sensor -->
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="30sp"
+    android:layout_height="35sp"
     android:orientation="horizontal"
     android:layout_marginTop="20dp"
     android:background="@drawable/rounded"
@@ -245,6 +264,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Temperature Sensor Data: "
+        android:textColor="@color/white"
         android:layout_marginLeft="10dp"
         android:textStyle="bold"/>
     <TextView
@@ -252,6 +272,7 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginRight="10dp"
         android:layout_gravity="center"/>
 </LinearLayout>
@@ -270,11 +291,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Humidity Sensor Data: "
+            android:textColor="@color/white"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/humidID"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -295,6 +318,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Proximity Sensor Data: "
+            android:textColor="@color/white"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"/>
         <TextView
@@ -303,6 +327,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
+            android:textColor="@color/white"
             android:layout_gravity="center"/>
     </LinearLayout>
 </LinearLayout>
