@@ -29,11 +29,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         android:background="@drawable/rounded"
         android:layout_marginTop="30dp">
         <TextView
             android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="  Accelerometer Sensor Data"
@@ -221,7 +222,8 @@
         android:text="  Pressure Sensor Data: "
         android:drawableLeft="@drawable/pressure_black_36"
         android:layout_marginStart="10dp"
-
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:textStyle="bold"/>
     <TextView
         android:layout_weight="1"
@@ -246,6 +248,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:text="  Light Sensor Data: "
         android:drawableLeft="@drawable/light_mode_black_36"
         android:textStyle="bold"/>
