@@ -9,8 +9,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     private static final String TAG = "MainActivity";
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Log.d(TAG, "OnCreate: Registered Magnetic Listener");
         }else {
             xMagno.setText("-");
-            yMagno.setText("Magnetic Sensor is not supported");
+            yMagno.setText("Magnetometer Sensor is not supported");
             zMagno.setText("-");
         }
         if(mLight !=null) {
@@ -122,37 +125,50 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
+        DecimalFormat df = new DecimalFormat("#.#####");
         // Logic For ACCELEROMETER sensor
         if( sensor.getType() == Sensor.TYPE_ACCELEROMETER  ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0]+ "onSensorChanged: Y"+event.values[1]+
                             "onSensorChanged: Z"+ event.values[2]);
-            xAcc.setText("Xval: " + event.values[0]+"m/s2");
-            yAcc.setText("Yval: " + event.values[1]+"m/s2");
-            zAcc.setText("Zval: " + event.values[2]+"m/s2");
+            String x_Val = df.format(event.values[0]);
+            String y_Val = df.format(event.values[1]);
+            String z_Val = df.format(event.values[2]);
+            xAcc.setText("X: " + x_Val + "m/s\u00b2");
+            yAcc.setText("Y: " + y_Val + "m/s²");
+            zAcc.setText("Z: " + z_Val + "m/s²");
         }
         // Logic For GYROSCOPE sensor
         else if( sensor.getType() == Sensor.TYPE_GYROSCOPE  ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0]+ "onSensorChanged: Y"+event.values[1]+
                     "onSensorChanged: Z"+ event.values[2]);
-            xGyro.setText("Xval: " + event.values[0]+"rad/s");
-            yGyro.setText("Yval: " + event.values[1]+"rad/s");
-            zGyro.setText("Zval: " + event.values[2]+"rad/s");
+            String x_Val = df.format(event.values[0]);
+            String y_Val = df.format(event.values[1]);
+            String z_Val = df.format(event.values[2]);
+            xGyro.setText("X: " + x_Val+"rad/s");
+            yGyro.setText("Y: " + y_Val+"rad/s");
+            zGyro.setText("Z: " + z_Val+"rad/s");
         }
         // Logic For MAGNETIC_FIELD sensor
         else if( sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD  ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0]+ "onSensorChanged: Y"+event.values[1]+
                     "onSensorChanged: Z"+ event.values[2]);
-            xMagno.setText("Xval: " + event.values[0]+"μT");
-            yMagno.setText("Yval: " + event.values[1]+"μT");
-            zMagno.setText("Zval: " + event.values[2]+"μT");
+            String x_Val = df.format(event.values[0]);
+            String y_Val = df.format(event.values[1]);
+            String z_Val = df.format(event.values[2]);
+            xMagno.setText("X: " + x_Val+"μT");
+            yMagno.setText("Y: " + y_Val+"μT");
+            zMagno.setText("Z: " + z_Val+"μT");
         }
         // Logic For Gravity sensor
         else if( sensor.getType() == Sensor.TYPE_GRAVITY  ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0]+ "onSensorChanged: Y"+event.values[1]+
                     "onSensorChanged: Z"+ event.values[2]);
-            xGravity.setText("Xval: " + event.values[0]+"m/s2");
-            yGravity.setText("Yval: " + event.values[1]+"m/s2");
-            zGravity.setText("Zval: " + event.values[2]+"m/s2");
+            String x_Val = df.format(event.values[0]);
+            String y_Val = df.format(event.values[1]);
+            String z_Val = df.format(event.values[2]);
+            xGravity.setText("X: " + x_Val+"m/s²");
+            yGravity.setText("Y: " + y_Val+"m/s²");
+            zGravity.setText("Z: " + z_Val+"m/s²");
         }
         // Logic For LIGHT sensor
         else if( sensor.getType() == Sensor.TYPE_LIGHT  ) {
@@ -162,22 +178,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Logic For PRESSURE sensor
         else if( sensor.getType() == Sensor.TYPE_PRESSURE ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0] );
-            PressVal.setText("value: " + event.values[0]+"hPa");
+            PressVal.setText("value: " + event.values[0]+" hPa");
         }
         // Logic For TEMPERATURE sensor
         else if( sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0] );
-            TempVal.setText("value: " + event.values[0]+"°C");
+            TempVal.setText("value: " + event.values[0]+" °C");
         }
         // Logic For HUMIDITY sensor
         else if( sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0] );
-            HumVal.setText("value: " + event.values[0]+"%");
+            HumVal.setText("value: " + event.values[0]+" %");
         }
         // Logic For PROXIMITY sensor
         else if( sensor.getType() == Sensor.TYPE_PROXIMITY ) {
             Log.d(TAG, "onSensorChanged: X"+ event.values[0] );
-            ProxmVal.setText("value: " + event.values[0]+"cm");
+            ProxmVal.setText("value: " + event.values[0]+" cm");
         }
     }
 
