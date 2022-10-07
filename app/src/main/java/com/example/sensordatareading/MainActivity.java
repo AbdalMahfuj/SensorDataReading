@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     private static final String TAG = "MainActivity";
     private SensorManager mSensorManager;
-    private Sensor mAccelerometer, mGyroscope, mGravity , mMagno, mLight, mPressure, mTemp, mHumd, mProximity;
+    private Sensor mAccelerometer, mGyroscope, mGravity , mMagno, mLight, mPressure, mTemperature, mHumd, mProximity;
     TextView xAcc, yAcc, zAcc, xGyro, yGyro, zGyro, xGravity, yGravity, zGravity,
             xMagno, yMagno, zMagno, LightVal, PressVal, TempVal, HumVal, ProxmVal;
 
@@ -48,20 +48,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Log.d(TAG, "OnCreate Initializing Sensor Service");
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 
+        // sensors Initialization
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mGyroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         mGravity = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         mMagno = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         mPressure = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-        mTemp = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        mTemperature = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
         mHumd = mSensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
         mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 
+       /*   check if the sensor is supported or not   */
         if(mAccelerometer !=null) {
             mSensorManager.registerListener(MainActivity.this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Accelerometer Listener");
-        }else {
+        } else{
             xAcc.setText("-");
             yAcc.setText("Accelerometer Sensor is not supported");
             zAcc.setText("-");
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(mGyroscope !=null) {
             mSensorManager.registerListener(MainActivity.this, mGyroscope, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Gyroscope Listener");
-        }else {
+        } else{
             xGyro.setText("-");
             yGyro.setText("Gyroscope Sensor is not supported");
             zGyro.setText("-");
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(mGravity !=null) {
             mSensorManager.registerListener(MainActivity.this, mGravity, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Gravity Listener");
-        }else {
+        } else{
             xGravity.setText("-");
             yGravity.setText("Gravity Sensor is not supported");
             zGravity.setText("-");
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(mMagno !=null) {
             mSensorManager.registerListener(MainActivity.this, mMagno, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Magnetic Listener");
-        }else {
+        } else{
             xMagno.setText("-");
             yMagno.setText("Magnetometer Sensor is not supported");
             zMagno.setText("-");
@@ -93,35 +95,36 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(mLight !=null) {
             mSensorManager.registerListener(MainActivity.this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Light Listener");
-        }else {
+        } else{
             LightVal.setText("Light Sensor is not supported");
         }
         if(mPressure !=null) {
             mSensorManager.registerListener(MainActivity.this, mPressure, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Pressure Listener");
-        }else {
+        } else{
             PressVal.setText("Pressure Sensor is not supported");
         }
-        if(mTemp !=null) {
-            mSensorManager.registerListener(MainActivity.this, mTemp, SensorManager.SENSOR_DELAY_NORMAL);
+        if(mTemperature !=null) {
+            mSensorManager.registerListener(MainActivity.this, mTemperature, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Temperature Listener");
-        }else {
+        } else{
             TempVal.setText("Temperature Sensor is not supported");
         }
         if(mHumd !=null) {
             mSensorManager.registerListener(MainActivity.this, mHumd, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Humidity Listener");
-        }else {
+        } else{
             HumVal.setText("Humidity Sensor is not supported");
         }
         if(mProximity !=null) {
             mSensorManager.registerListener(MainActivity.this, mProximity, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Proximity Listener");
-        }else {
+        } else{
             ProxmVal.setText("Proximity Sensor is not supported");
         }
     }
 
+    /*    Sensor Data showing    */
     @Override
     public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
