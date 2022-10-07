@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     private static final String TAG = "MainActivity";
     private SensorManager mSensorManager;
-    private Sensor mAccelerometer, mGyroscope, mGravity , mMagno, mLight, mPressure, mTemperature, mHumd, mProximity;
+    private Sensor mAccelerometer, mGyroscope, mGravity , mMagnetometer, mLight, mPressure, mTemperature, mHumidity, mProximity;
     TextView xAcc, yAcc, zAcc, xGyro, yGyro, zGyro, xGravity, yGravity, zGravity,
             xMagno, yMagno, zMagno, LightVal, PressVal, TempVal, HumVal, ProxmVal;
 
@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mGyroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         mGravity = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
-        mMagno = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         mPressure = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         mTemperature = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        mHumd = mSensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
+        mHumidity = mSensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
         mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 
        /*   check if the sensor is supported or not   */
@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             yGravity.setText("Gravity Sensor is not supported");
             zGravity.setText("-");
         }
-        if(mMagno !=null) {
-            mSensorManager.registerListener(MainActivity.this, mMagno, SensorManager.SENSOR_DELAY_NORMAL);
+        if(mMagnetometer !=null) {
+            mSensorManager.registerListener(MainActivity.this, mMagnetometer, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Magnetic Listener");
         } else{
             xMagno.setText("-");
@@ -110,8 +110,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         } else{
             TempVal.setText("Temperature Sensor is not supported");
         }
-        if(mHumd !=null) {
-            mSensorManager.registerListener(MainActivity.this, mHumd, SensorManager.SENSOR_DELAY_NORMAL);
+        if(mHumidity !=null) {
+            mSensorManager.registerListener(MainActivity.this, mHumidity, SensorManager.SENSOR_DELAY_NORMAL);
             Log.d(TAG, "OnCreate: Registered Humidity Listener");
         } else{
             HumVal.setText("Humidity Sensor is not supported");
